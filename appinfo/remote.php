@@ -43,7 +43,7 @@ $server->addPlugin(new Sabre_CalDAV_Plugin());
 $server->addPlugin(new Sabre_DAVACL_Plugin());
 $server->addPlugin(new Sabre_DAV_Browser_Plugin(false)); // Show something in the Browser, but no upload
 $server->addPlugin(new Sabre_CalDAV_ICSExportPlugin());
-$email = \OCP\Config::getAppValue('settings', 'email');
+$email = \OCP\Config::getUserValue(\OCP\User::getUser(), 'settings', 'email');
 if($email !== null) {
 	$caldavPlugin = new \Sabre\CalDAV\Plugin();
 	$caldavPlugin->setIMipHandler(
